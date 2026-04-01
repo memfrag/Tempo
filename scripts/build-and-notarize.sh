@@ -36,10 +36,12 @@ fi
 echo "==> Checking version..."
 
 CURRENT_VERSION=$(xcodebuild -scheme "$SCHEME" -showBuildSettings 2>/dev/null \
-    | grep "MARKETING_VERSION" | head -1 | awk '{print $NF}')
+    | grep "MARKETING_VERSION" | head -1 | awk '{print $NF}' || true)
 
 if [ -z "$CURRENT_VERSION" ]; then
-    CURRENT_VERSION="0.0.0"
+    # Fall back to reading from Info.plist
+    CURRENT_VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" \
+        "$PROJECT_DIR/Sources/Resources/Info.plist" 2>/dev/null || echo "1.0")
 fi
 
 echo "    Current version: $CURRENT_VERSION"
@@ -51,11 +53,19 @@ read -rp "    Enter new version (leave empty to keep $CURRENT_VERSION): " NEW_VE
 
 if [ -n "$NEW_VERSION" ]; then
     VERSION="$NEW_VERSION"
-    echo "    Updating version to $VERSION in project.pbxproj..."
-    sed -i '' "s/MARKETING_VERSION = [^;]*/MARKETING_VERSION = $VERSION/" "$PROJECT_DIR/Tempo.xcodeproj/project.pbxproj"
-    sed -i '' "s/CURRENT_PROJECT_VERSION = [^;]*/CURRENT_PROJECT_VERSION = $VERSION/" "$PROJECT_DIR/Tempo.xcodeproj/project.pbxproj"
+    PBXPROJ="$PROJECT_DIR/Tempo.xcodeproj/project.pbxproj"
+    INFO_PLIST="$PROJECT_DIR/Sources/Resources/Info.plist"
+    if grep -q "MARKETING_VERSION" "$PBXPROJ"; then
+        echo "    Updating version to $VERSION in project.pbxproj..."
+        sed -i '' "s/MARKETING_VERSION = [^;]*/MARKETING_VERSION = $VERSION/" "$PBXPROJ"
+        sed -i '' "s/CURRENT_PROJECT_VERSION = [^;]*/CURRENT_PROJECT_VERSION = $VERSION/" "$PBXPROJ"
+    else
+        echo "    Updating version to $VERSION in Info.plist..."
+        /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "$INFO_PLIST"
+        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $VERSION" "$INFO_PLIST"
+    fi
     cd "$PROJECT_DIR"
-    git add Tempo.xcodeproj/project.pbxproj
+    git add -A
     git commit -m "Bump version to $VERSION"
     git push origin HEAD
     cd "$SCRIPT_DIR"

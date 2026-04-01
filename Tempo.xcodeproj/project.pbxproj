@@ -149,6 +149,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = DefaultAppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sources/Resources/Tempo.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -168,6 +169,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.apparata.app.tempo;
 				PRODUCT_NAME = Tempo;
 				SDKROOT = macosx;
@@ -299,6 +301,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = DefaultAppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sources/Resources/Tempo.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -318,6 +321,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.apparata.app.tempo;
 				PRODUCT_NAME = Tempo;
 				SDKROOT = macosx;
