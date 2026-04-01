@@ -13,7 +13,7 @@ A native macOS time tracking app built with SwiftUI that uses the [Noko](https:/
 
 ## Requirements
 
-- macOS 14 (Sonoma) or later
+- macOS 26 or later
 - A [Noko](https://nokotime.com) account with a personal access token
 
 ## Getting Started
