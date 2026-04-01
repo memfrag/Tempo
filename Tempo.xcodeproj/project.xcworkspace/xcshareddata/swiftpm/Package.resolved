@@ -1,0 +1,33 @@
+{
+  "originHash" : "5165452773989ff94782fc01c46ee69ff7e37d2dfd8354ae15d155dde4714508",
+  "pins" : [
+    {
+      "identity" : "attributionsui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apparata/AttributionsUI",
+      "state" : {
+        "revision" : "a8120596dd47532aa0db2971609c7cf1dbba67af",
+        "version" : "1.1.1"
+      }
+    },
+    {
+      "identity" : "sparkle",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparkle-project/Sparkle",
+      "state" : {
+        "revision" : "066e75a8b3e99962685d6a90cdd5293ebffd9261",
+        "version" : "2.9.1"
+      }
+    },
+    {
+      "identity" : "swiftuitoolbox",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apparata/SwiftUIToolbox.git",
+      "state" : {
+        "revision" : "4c3398fe7959dbbd63c0b01134aeee0bc37584a6",
+        "version" : "1.9.3"
+      }
+    }
+  ],
+  "version" : 3
+}

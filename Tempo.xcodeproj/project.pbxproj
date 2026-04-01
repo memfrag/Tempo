@@ -6,15 +6,51 @@
 	objectVersion = 70;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		414EE0172F7DBB3A0055C855 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 414EE0162F7DBB3A0055C855 /* Sparkle */; };
+		414EE01A2F7DBC530055C855 /* AttributionsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 414EE0192F7DBC530055C855 /* AttributionsUI */; };
+		414EE01D2F7DBCD70055C855 /* SwiftUIToolbox in Frameworks */ = {isa = PBXBuildFile; productRef = 414EE01C2F7DBCD70055C855 /* SwiftUIToolbox */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		AE6263597B3354C508BBC7D4 /* Tempo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tempo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		414EE0202F7DBF800055C855 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Info.plist,
+			);
+			target = B4B1ABCA42D941961C207402 /* Tempo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		417412AF2F7C0E6700019393 /* Sources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Sources; sourceTree = "<group>"; };
+		417412AF2F7C0E6700019393 /* Sources */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (414EE0202F7DBF800055C855 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Sources; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		414EE0142F7DBB360055C855 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				414EE01A2F7DBC530055C855 /* AttributionsUI in Frameworks */,
+				414EE0172F7DBB3A0055C855 /* Sparkle in Frameworks */,
+				414EE01D2F7DBCD70055C855 /* SwiftUIToolbox in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		414EE0152F7DBB3A0055C855 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		551138FD8DA4B1DC4CE1CC90 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -28,6 +64,7 @@
 			children = (
 				417412AF2F7C0E6700019393 /* Sources */,
 				551138FD8DA4B1DC4CE1CC90 /* Products */,
+				414EE0152F7DBB3A0055C855 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -39,6 +76,8 @@
 			buildConfigurationList = 4FE7A9862C48352D13895373 /* Build configuration list for PBXNativeTarget "Tempo" */;
 			buildPhases = (
 				F8BECD3B83F1BDE402E1832A /* Sources */,
+				414EE0142F7DBB360055C855 /* Frameworks */,
+				414EE01F2F7DBF7F0055C855 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -70,6 +109,11 @@
 				en,
 			);
 			mainGroup = 93935E517C8A0946CFCF7B9D;
+			packageReferences = (
+				414EE0122F7DBB260055C855 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				414EE0182F7DBC530055C855 /* XCRemoteSwiftPackageReference "AttributionsUI" */,
+				414EE01B2F7DBCD70055C855 /* XCRemoteSwiftPackageReference "SwiftUIToolbox" */,
+			);
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -77,6 +121,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		414EE01F2F7DBF7F0055C855 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F8BECD3B83F1BDE402E1832A /* Sources */ = {
@@ -92,16 +146,29 @@
 		2F94FC066E934C1EDF0C22F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = DefaultAppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/Resources/Tempo.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				INFOPLIST_FILE = Sources/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tempo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tempo.app;
+				PRODUCT_BUNDLE_IDENTIFIER = io.apparata.app.tempo;
 				PRODUCT_NAME = Tempo;
 				SDKROOT = macosx;
 			};
@@ -229,16 +296,29 @@
 		C4BB3300C35869F601FE5EED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = DefaultAppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/Resources/Tempo.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				INFOPLIST_FILE = Sources/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tempo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tempo.app;
+				PRODUCT_BUNDLE_IDENTIFIER = io.apparata.app.tempo;
 				PRODUCT_NAME = Tempo;
 				SDKROOT = macosx;
 			};
@@ -266,6 +346,51 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		414EE0122F7DBB260055C855 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
+		414EE0182F7DBC530055C855 /* XCRemoteSwiftPackageReference "AttributionsUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apparata/AttributionsUI";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.1;
+			};
+		};
+		414EE01B2F7DBCD70055C855 /* XCRemoteSwiftPackageReference "SwiftUIToolbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apparata/SwiftUIToolbox.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.9.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		414EE0162F7DBB3A0055C855 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 414EE0122F7DBB260055C855 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+		414EE0192F7DBC530055C855 /* AttributionsUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 414EE0182F7DBC530055C855 /* XCRemoteSwiftPackageReference "AttributionsUI" */;
+			productName = AttributionsUI;
+		};
+		414EE01C2F7DBCD70055C855 /* SwiftUIToolbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 414EE01B2F7DBCD70055C855 /* XCRemoteSwiftPackageReference "SwiftUIToolbox" */;
+			productName = SwiftUIToolbox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD30179AB18F679D26066274 /* Project object */;
 }

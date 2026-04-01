@@ -24,5 +24,11 @@
 	<string>26.0</string>
 	<key>NSHumanReadableCopyright</key>
 	<string></string>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/memfrag/Tempo/main/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>AvJMcXvL9lwbU8D00Z9uECjR9zdeOlcsl7Rktg/hQVE=</string>
+	<key>SUEnableInstallerLauncherService</key>
+	<true/>
 </dict>
 </plist>
