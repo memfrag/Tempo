@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Tempo</title>
+        <item>
+            <title>1.0</title>
+            <pubDate>Wed, 01 Apr 2026 23:11:14 +0200</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/memfrag/Tempo/releases/download/1.0.0/Tempo-1.0.0.dmg" length="4857180" type="application/octet-stream" sparkle:edSignature="G2xaty2VdcicdIncwJnarBbyl7k1q/rLz1th76b8eV42slCNeHP06iBzpK84s3Rz+nLdhgBPgchkDm2Q2BxYCQ=="/>
+        </item>
+    </channel>
+</rss>
