@@ -5,6 +5,11 @@ struct MenuBarPopover: View {
     @State private var todayEntries: [NokoEntry] = []
     @State private var todayTotal: Int = 0
 
+    @State private var newDescription = ""
+    @State private var newDuration = ""
+    @State private var newProjectId: Int?
+    @State private var isSubmitting = false
+
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -17,6 +22,10 @@ struct MenuBarPopover: View {
                     .foregroundStyle(.tertiary)
             }
             .padding(12)
+
+            Divider()
+
+            quickEntryForm
 
             Divider()
 
@@ -72,6 +81,67 @@ struct MenuBarPopover: View {
         }
         .frame(width: 300)
         .task { await loadToday() }
+        .onAppear { newProjectId = appState.defaultProjectId }
+    }
+
+    private var quickEntryForm: some View {
+        VStack(spacing: 8) {
+            TextField("What did you work on?", text: $newDescription)
+                .textFieldStyle(.roundedBorder)
+                .font(.callout)
+                .onSubmit { submitEntry() }
+
+            HStack(spacing: 8) {
+                TextField("e.g. 1:30", text: $newDuration)
+                    .textFieldStyle(.roundedBorder)
+                    .font(.callout)
+                    .frame(width: 70)
+
+                Picker("Project", selection: $newProjectId) {
+                    if let defaultProject = appState.defaultProject {
+                        Text(defaultProject.name).tag(nil as Int?)
+                    }
+                    ForEach(appState.projects) { project in
+                        Text(project.name).tag(project.id as Int?)
+                    }
+                }
+                .labelsHidden()
+                .font(.callout)
+
+                Button(action: submitEntry) {
+                    Image(systemName: "plus.circle.fill")
+                }
+                .buttonStyle(.plain)
+                .foregroundStyle(.blue)
+                .disabled(newDescription.isEmpty || newDuration.isEmpty || isSubmitting)
+            }
+        }
+        .padding(12)
+    }
+
+    private func submitEntry() {
+        guard !newDescription.isEmpty,
+              let client = appState.client,
+              let minutes = TimeFormatter.parseToMinutes(newDuration),
+              minutes > 0 else { return }
+        let projectId = newProjectId ?? appState.defaultProject?.id
+        let description = newDescription
+        isSubmitting = true
+        Task {
+            defer { isSubmitting = false }
+            do {
+                let entry = try await client.createEntry(
+                    date: Date(),
+                    minutes: minutes,
+                    projectId: projectId,
+                    description: description
+                )
+                todayEntries.insert(entry, at: 0)
+                todayTotal += entry.minutes
+                newDescription = ""
+                newDuration = ""
+            } catch {}
+        }
     }
 
     private func loadToday() async {
