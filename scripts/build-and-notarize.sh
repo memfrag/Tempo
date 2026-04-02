@@ -74,13 +74,12 @@ if [ -n "$NEW_VERSION" ]; then
         echo "    Updating version to $VERSION in project.pbxproj..."
         sed -i '' "s/MARKETING_VERSION = [^;]*/MARKETING_VERSION = $VERSION/" "$PBXPROJ"
         sed -i '' "s/CURRENT_PROJECT_VERSION = [^;]*/CURRENT_PROJECT_VERSION = $VERSION/" "$PBXPROJ"
-    else
-        echo "    Updating version to $VERSION in Info.plist..."
-        /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "$INFO_PLIST" \
-            || error "Failed to update CFBundleShortVersionString in Info.plist"
-        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $VERSION" "$INFO_PLIST" \
-            || error "Failed to update CFBundleVersion in Info.plist"
     fi
+    echo "    Updating version to $VERSION in Info.plist..."
+    /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "$INFO_PLIST" \
+        || error "Failed to update CFBundleShortVersionString in Info.plist"
+    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $VERSION" "$INFO_PLIST" \
+        || error "Failed to update CFBundleVersion in Info.plist"
     cd "$PROJECT_DIR"
     git add -A
     git commit -m "Bump version to $VERSION"
