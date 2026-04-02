@@ -9,7 +9,7 @@
             <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://github.com/memfrag/Tempo/releases/download/1.0.0/Tempo-1.0.0.dmg" length="4857180" type="application/octet-stream" sparkle:edSignature="G2xaty2VdcicdIncwJnarBbyl7k1q/rLz1th76b8eV42slCNeHP06iBzpK84s3Rz+nLdhgBPgchkDm2Q2BxYCQ=="/>
+            <enclosure url="https://github.com/memfrag/Tempo/releases/download/1.1.0/Tempo-1.1.0.dmg" length="4865694" type="application/octet-stream" sparkle:edSignature="nV7hJEk+4PDmu4g3DQhE1/ay/BAFIsTsqxdJbNU8R2mWssmaUKiFG7qELfK4LYoUhO79u6SNeJ/Jm4s/suVoBw=="/>
         </item>
     </channel>
 </rss>
