@@ -3,6 +3,15 @@
     <channel>
         <title>Tempo</title>
         <item>
+            <title>1.1.1</title>
+            <pubDate>Sun, 26 Apr 2026 18:19:52 +0200</pubDate>
+            <sparkle:version>1.1.1</sparkle:version>
+            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/memfrag/Tempo/releases/download/1.1.1/Tempo-1.1.1.dmg" length="4864196" type="application/octet-stream" sparkle:edSignature="raaH/+6/dXCrNHkIvjyvXrpgWeJiZ/r1t+RiAjNNvHgmzNdooMmJu0C4Fg2lKAK7oIWahXmNwfsTmns5UOI1Dg=="/>
+        </item>
+        <item>
             <title>1.0</title>
             <pubDate>Wed, 01 Apr 2026 23:11:14 +0200</pubDate>
             <sparkle:version>1.1.0</sparkle:version>
