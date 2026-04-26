@@ -128,7 +128,16 @@ fi
 # ── Extract version from exported app ────────────────────────────────────────
 EXPORTED_VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$APP_PATH/Contents/Info.plist") \
     || error "Failed to read version from exported app"
-echo "    Exported app version: $EXPORTED_VERSION"
+EXPORTED_BUILD=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$APP_PATH/Contents/Info.plist") \
+    || error "Failed to read build number from exported app"
+echo "    Exported app version: $EXPORTED_VERSION ($EXPORTED_BUILD)"
+
+if [ "$EXPORTED_VERSION" != "$VERSION" ]; then
+    error "Exported CFBundleShortVersionString ($EXPORTED_VERSION) does not match expected version ($VERSION)"
+fi
+if [ "$EXPORTED_BUILD" != "$VERSION" ]; then
+    error "Exported CFBundleVersion ($EXPORTED_BUILD) does not match expected version ($VERSION)"
+fi
 
 # ── Create DMG ───────────────────────────────────────────────────────────────
 echo "==> Creating DMG..."
